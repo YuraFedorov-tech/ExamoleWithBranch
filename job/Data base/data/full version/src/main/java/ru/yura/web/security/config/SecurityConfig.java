@@ -20,28 +20,24 @@ import ru.yura.web.app.handler.MySimpleUrlAuthenticationSuccessHandler;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-      //  auth.userDetailsService(userDetailsServiceImpl);
-        auth.inMemoryAuthentication();
+    @Autowired
+    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+      //  log.info("configureGlobalSecurity");
+        auth.inMemoryAuthentication()
+                .withUser("admin").password("admin").roles("ADMIN");
     }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    //    log.info("configure(HttpSecurity http)");
         http
-                .authorizeRequests()
-                .antMatchers("/auth/**").permitAll()
-                .antMatchers("/admin/**").hasAuthority("ADMIN")
-                .antMatchers("/user/**").authenticated()
-//                .antMatchers("/admin/**").permitAll()
-//                .antMatchers("/user/**").permitAll()
+                .httpBasic()
                 .and()
-                .formLogin()
-                .usernameParameter("email")
-          //      .successHandler(new MySimpleUrlAuthenticationSuccessHandler())
-                .permitAll();
-        http.csrf().disable();
+                .authorizeRequests()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/user/**","/auth/**").permitAll()
+                .and()
+                .csrf().disable()
+                .formLogin().disable();
     }
 
 }

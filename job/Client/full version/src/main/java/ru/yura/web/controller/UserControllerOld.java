@@ -39,6 +39,7 @@ public class UserControllerOld {
     @GetMapping(value = "admin/admin")
     public String getAdminPanel(ModelMap modelMap, Authentication authentication) {
       //  modelMap.addAttribute("user", authentication.getPrincipal());
+        User user2= (User) authentication.getPrincipal();
         modelMap.addAttribute("user", new User());
         modelMap.addAttribute("users", userService.findAll());
         System.out.println("   @GetMapping(value = \"admin/admin\")   CLIENTT");
