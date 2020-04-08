@@ -8,17 +8,17 @@ package ru.yura.web.model;
  */
 
 
-import lombok.*;
-import lombok.*;
-import lombok.experimental.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+
 @Accessors(chain = true)
 @Data
 @NoArgsConstructor

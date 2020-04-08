@@ -64,6 +64,8 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
 
         Map<String, String> roleTargetUrlMap = new HashMap<>();
         roleTargetUrlMap.put("USER", "/user");
+        roleTargetUrlMap.put("GUEST", "/user");
+        roleTargetUrlMap.put("SUPERADMIN", "/user");
         roleTargetUrlMap.put("ADMIN", "/admin/admin");
 
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -84,6 +86,4 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         }
         session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
     }
-
-
 }

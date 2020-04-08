@@ -37,28 +37,5 @@ public class Application {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Application.class, args);
-  //      UserService userService = ctx.getBean(UserService.class);
-//        User user = userService.findModelByName("2@2.ru");
-//        System.out.println(user.getId() + " public static void main(String[] args) { " + user);
-//
-//        List<User> users = userService.findAll();
-//        System.out.println("users -" + users);
-//
-////        User user3 = userService.delete(userService.findModelByName("e3@3e.ru"));
-////        System.out.println("user3 -" + user3);
-//
-////        User user4=userService.add(new User().setEmail("111111111111"),459L);
-////        System.out.println(user4);
-//
-//        Long[]id={458L,459L, 456L, 463L};
-//        User user5=userService.update(user.setFirstName("2"), id);
-//        System.out.println(user5);
-
-
-
-
-
-
     }
-
 }

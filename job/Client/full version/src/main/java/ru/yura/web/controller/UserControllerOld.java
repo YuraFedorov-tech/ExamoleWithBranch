@@ -5,7 +5,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.yura.web.model.User;
 import ru.yura.web.service.UserService;
 
 /*
@@ -18,16 +17,6 @@ import ru.yura.web.service.UserService;
 
 @Controller
 public class UserControllerOld {
-
-    @GetMapping(value = "login")
-    public String loginPage() {
-        return "login";
-    }
-
-    @GetMapping(value = "check")
-    public String loginsPage() {
-        return "crudfForWork";
-    }
 
     final private
     UserService userService;
