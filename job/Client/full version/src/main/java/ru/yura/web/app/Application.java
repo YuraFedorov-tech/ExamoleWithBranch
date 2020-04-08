@@ -25,10 +25,7 @@ import java.util.List;
 
 
 @ComponentScan(basePackages = "ru")
-//@EnableJpaRepositories(basePackages = "ru")
-//@EnableRetry
 @EnableCaching
-//@EnableHystrix
 @EntityScan(basePackages = "ru.yura")
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class Application {

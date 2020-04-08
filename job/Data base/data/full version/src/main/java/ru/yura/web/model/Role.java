@@ -1,7 +1,8 @@
 package ru.yura.web.model;
 
-import lombok.*;
-import lombok.experimental.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;

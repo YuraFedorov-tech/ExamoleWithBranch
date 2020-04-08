@@ -27,8 +27,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 
 import javax.persistence.EntityManagerFactory;
 
-//@SpringBootApplication
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 @ComponentScan(basePackages = "ru")
 @EnableJpaRepositories(basePackages = "ru")
 @EntityScan(basePackages = "ru.yura")

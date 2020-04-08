@@ -21,7 +21,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserService userService;
 
     public UserDetailsServiceImpl(UserService userService) {
-
         this.userService = userService;
     }
 
@@ -32,6 +31,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             return user;
         }
         return null;
-       // return user==null? null:user;
     }
 }

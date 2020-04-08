@@ -6,7 +6,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import ru.yura.web.app.handler.MySimpleUrlAuthenticationSuccessHandler;
 
 
 /*
@@ -25,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("admin").password("admin").roles("ADMIN");
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**").permitAll()
+                .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/auth/**").permitAll()
                 .and()
                 .csrf().disable()

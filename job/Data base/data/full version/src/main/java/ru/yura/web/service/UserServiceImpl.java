@@ -65,8 +65,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
-
     @Transactional(readOnly = true)
     @Override
     public User findModelByName(String name) {

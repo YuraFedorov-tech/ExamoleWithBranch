@@ -9,7 +9,6 @@ package ru.yura.web.dao;
 
 
 import org.springframework.stereotype.Repository;
-import ru.yura.web.dao.RoleDao;
 import ru.yura.web.model.Role;
 
 import javax.persistence.EntityManager;
