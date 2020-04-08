@@ -22,22 +22,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-      //  log.info("configureGlobalSecurity");
         auth.inMemoryAuthentication()
                 .withUser("admin").password("admin").roles("ADMIN");
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    //    log.info("configure(HttpSecurity http)");
         http
                 .httpBasic()
                 .and()
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**","/auth/**").permitAll()
+                .antMatchers("/user/**").permitAll()
+                .antMatchers("/auth/**").permitAll()
                 .and()
                 .csrf().disable()
                 .formLogin().disable();
     }
-
 }
